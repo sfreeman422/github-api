@@ -1,0 +1,63 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #222;
+  height: 10%;
+  padding: 20px;
+  color: white;
+}
+
+.userBadge {
+  height: 20%; 
+  padding: 1%;
+}
+
+.repoList {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.repoInfo {
+  width: 31%;
+  max-height: 5%;
+  min-height: 5%;
+  margin: 1%;
+  background-color: #f7f8f9;
+  border-style: solid;
+  border-color: black;
+  border-width: 0.5px;
+}
+
+.icons {
+  padding: 1%;
+}
+
+.searchComponent > form > input {
+  width: 20%;
+  font-size: 150%;
+  text-align: center;
+  margin: 1%;
+}
+
+.searchComponent > form > button {
+  font-size: 125%;
+  background-color: #02b01c;
+  color: white;
+  border-radius: 12px;
+  padding: 1%;
+}
+
+.badgeAvatar {
+  max-height: 20%;
+  max-width: 20%;
+  border-radius: 50%;
+}
+
+button:focus, input:focus {
+  outline: none;
+}
+.error {
+  color: red;
+}

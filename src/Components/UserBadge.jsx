@@ -7,8 +7,6 @@ const UserBadge = ({ userObj }) => (
     {userObj.message === 'Not Found' ? <p className="error">Woops! It looks like that user is not on GitHub. <br /> Please try again.</p> : null}
     {userObj.name ? <h1>{userObj.name}</h1> : null}
     {userObj.followers && userObj.following ? <p>Followers: {userObj.followers} / Following: {userObj.following}</p> : null}
-    {userObj.followers && !userObj.following ? <p>Followers: {userObj.followers}</p> : null}
-    {userObj.following && !userObj.followers ? <p>Following: {userObj.following}</p> : null}
   </div>
 );
 

@@ -15,7 +15,7 @@ const UserRepo = ({ repoInfo }) => (
 );
 
 UserRepo.propTypes = {
-  repoInfo: PropTypes.objectOf(PropTypes.shape({
+  repoInfo: PropTypes.shape({
     name: PropTypes.string,
     description: PropTypes.string,
     git_url: PropTypes.string,
@@ -23,6 +23,6 @@ UserRepo.propTypes = {
     forks_count: PropTypes.number,
     open_issues_count: PropTypes.number,
     size: PropTypes.number,
-  })).isRequired,
+  }).isRequired,
 };
 export default UserRepo;

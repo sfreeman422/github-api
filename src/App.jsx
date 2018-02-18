@@ -27,13 +27,15 @@ class App extends Component {
     e.preventDefault();
     const userObj = await (await fetch(`https://api.github.com/users/${this.state.searchTerm}`)).json();
     const userRepos = await (await fetch(`https://api.github.com/users/${this.state.searchTerm}/repos`)).json();
+    if (userObj.message === 'Not Found') {
+      userObj.avatar_url = 'images/Octocat.jpg';
+    }
     this.setState({
       userObj,
       userRepos,
     });
   }
   render() {
-    console.log(this.state);
     return (
       <div className="App">
         <div className="App-header">

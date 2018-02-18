@@ -25,8 +25,8 @@ class App extends Component {
   }
   async search(e) {
     e.preventDefault();
-    const userObj = await fetch(`https://api.github.com/users/${this.state.searchTerm}`).then(response => response.json());
-    const userRepos = await fetch(`https://api.github.com/users/${this.state.searchTerm}/repos`).then(response => response.json());
+    const userObj = await (await fetch(`https://api.github.com/users/${this.state.searchTerm}`)).json();
+    const userRepos = await (await fetch(`https://api.github.com/users/${this.state.searchTerm}/repos`)).json();
     this.setState({
       userObj,
       userRepos,

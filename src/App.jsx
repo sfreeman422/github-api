@@ -23,26 +23,14 @@ class App extends Component {
       searchTerm,
     });
   }
-  search(e) {
+  async search(e) {
     e.preventDefault();
-    fetch(`https://api.github.com/users/${this.state.searchTerm}`)
-      .then(response => response.json())
-      .then((json) => {
-        const responseObj = Object.assign(json, {});
-        if (json.message === 'Not Found') {
-          responseObj.avatar_url = '/images/Octocat.jpg';
-        }
-        this.setState({
-          userObj: responseObj,
-        });
-      });
-    fetch(`https://api.github.com/users/${this.state.searchTerm}/repos`)
-      .then(response => response.json())
-      .then((json) => {
-        this.setState({
-          userRepos: json,
-        });
-      });
+    const userObj = await fetch(`https://api.github.com/users/${this.state.searchTerm}`).then(response => response.json());
+    const userRepos = await fetch(`https://api.github.com/users/${this.state.searchTerm}/repos`).then(response => response.json());
+    this.setState({
+      userObj,
+      userRepos,
+    });
   }
   render() {
     console.log(this.state);

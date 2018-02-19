@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`generates a user badge for user sfreeman422 1`] = `
+<div
+  className="userBadge"
+>
+  <img
+    alt="GitHub User Profile"
+    className="badgeAvatar"
+    src="https://avatars3.githubusercontent.com/u/16405652?v=4"
+  />
+  <h1>
+    Steven Freeman
+  </h1>
+  <p>
+    Followers: 
+    30
+     / Following: 
+    38
+  </p>
+</div>
+`;
+
+exports[`generates an error message and octocat picture for a missing user 1`] = `
+<div
+  className="userBadge"
+>
+  <img
+    alt="GitHub User Profile"
+    className="badgeAvatar"
+    src="/images/Octocat.jpg"
+  />
+  <p
+    className="error"
+  >
+    Woops! It looks like that user is not on GitHub. 
+    <br />
+     Please try again.
+  </p>
+</div>
+`;

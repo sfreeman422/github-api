@@ -13,7 +13,7 @@ class App extends Component {
     this.state = {
       searchTerm: '',
       userObj: {
-        avatar_url: '/images/Octocat.jpg',
+        avatar_url: '/github-api/images/Octocat.jpg',
       },
       userRepos: [],
       error: false,
@@ -34,6 +34,7 @@ class App extends Component {
       .catch(err => this.setState({ error: true, errorMessage: err.message }));
   }
   render() {
+    console.log(this.state);
     return (
       <div className="App">
         <div className="App-header">
@@ -41,7 +42,12 @@ class App extends Component {
           <p>Let&apos;s get started! Search for a Github user below.</p>
         </div>
         {this.state.error ?
-          <Err errorMessage={this.state.errorMessage} />
+          <Err
+            errorMessage={this.state.errorMessage}
+            searchTerm={this.state.searchTerm}
+            adjustSearchTerm={this.adjustSearchTerm}
+            search={this.search}
+          />
          :
           <div className="results">
             <UserBadge userObj={this.state.userObj} />

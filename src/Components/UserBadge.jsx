@@ -6,7 +6,7 @@ const UserBadge = ({ userObj }) => (
     {userObj.avatar_url ?
       <img src={userObj.avatar_url} className="badgeAvatar" alt="GitHub User Profile" />
       : null}
-    {userObj.message === 'Not Found' ?
+    {userObj.errorMessage ?
       <p className="error">Woops! It looks like that user is not on GitHub. <br /> Please try again.</p>
       : null}
     {userObj.name ?
@@ -29,7 +29,7 @@ UserBadge.propTypes = {
 
 UserBadge.defaultProps = {
   userObj: {
-    avatar_url: '/images/Octocat.jpg',
+    avatar_url: '/github-api/images/Octocat.jpg',
     followers: 0,
     following: 0,
     name: '',

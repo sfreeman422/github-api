@@ -2,7 +2,7 @@
 import search from './search';
 
 test('search returns valid results when passed user string', () => {
-  expect(search('sfreeman422')).resolves.toBe({
+  expect(search('sfreeman422')).resolves.toContain({
     name: expect.any(String),
     avatar_url: expect.any(String),
     followers: expect.any(Number),
@@ -11,15 +11,15 @@ test('search returns valid results when passed user string', () => {
 });
 
 test('search returns error when passed invalid search criteria', () => {
-  expect(search({})).rejects.toBe({
+  expect(search({})).resolves.toEqual({
     error: expect.any(Boolean),
     errorMessage: expect.any(String),
   });
-  expect(search([])).rejects.toBe({
+  expect(search([])).resolves.toEqual({
     error: expect.any(Boolean),
     errorMessage: expect.any(String),
   });
-  expect(search(1)).rejects.toBe({
+  expect(search(1)).resolves.toEqual({
     error: expect.any(Boolean),
     errorMessage: expect.any(String),
   });

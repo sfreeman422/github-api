@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import fetch from 'isomorphic-fetch';
+import search from './utils/search';
 import Search from './Components/Search';
 import UserBadge from './Components/UserBadge';
 import RepoList from './Components/RepoList';
+import Err from './Components/Err';
+
 import './App.css';
 
 class App extends Component {
@@ -14,6 +16,8 @@ class App extends Component {
         avatar_url: '/images/Octocat.jpg',
       },
       userRepos: [],
+      error: false,
+      errorMessage: '',
     };
     this.adjustSearchTerm = this.adjustSearchTerm.bind(this);
     this.search = this.search.bind(this);
@@ -23,17 +27,11 @@ class App extends Component {
       searchTerm,
     });
   }
-  async search(e) {
+  search(e) {
     e.preventDefault();
-    const userObj = await (await fetch(`https://api.github.com/users/${this.state.searchTerm}`)).json();
-    const userRepos = await (await fetch(`https://api.github.com/users/${this.state.searchTerm}/repos`)).json();
-    if (userObj.message === 'Not Found') {
-      userObj.avatar_url = 'images/Octocat.jpg';
-    }
-    this.setState({
-      userObj,
-      userRepos,
-    });
+    search(this.state.searchTerm)
+      .then(searchResults => this.setState({ userObj: searchResults.userObj, userRepos: searchResults.userRepos }))
+      .catch(err => this.setState({ error: true, errorMessage: err.message }));
   }
   render() {
     return (
@@ -42,13 +40,19 @@ class App extends Component {
           <h1>InRhythm Github Coding Challenge</h1>
           <p>Let&apos;s get started! Search for a Github user below.</p>
         </div>
-        <UserBadge userObj={this.state.userObj} />
-        <Search
-          searchTerm={this.state.searchTerm}
-          adjustSearchTerm={this.adjustSearchTerm}
-          search={this.search}
-        />
-        {this.state.userRepos.length > 0 ? <RepoList userRepos={this.state.userRepos} /> : null}
+        {this.state.error ?
+          <Err errorMessage={this.state.errorMessage} />
+         :
+          <div className="results">
+            <UserBadge userObj={this.state.userObj} />
+            <Search
+              searchTerm={this.state.searchTerm}
+              adjustSearchTerm={this.adjustSearchTerm}
+              search={this.search}
+            />
+            {this.state.userRepos.length > 0 ? <RepoList userRepos={this.state.userRepos} /> : null}
+          </div>
+        }
       </div>
     );
   }

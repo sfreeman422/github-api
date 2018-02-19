@@ -9,22 +9,25 @@
   color: white;
 }
 
-.userBadge {
-  height: 20%; 
-  padding: 1% 1% 0% 1%;
-}
-
 .repoList {
   display: flex;
   flex-wrap: wrap;
 }
 
 @media screen and (min-width: 1201px) {
+  .userBadge {
+    height: 20%; 
+    padding: 1% 1% 0% 1%;
+    font-size: 100%;
+  }
   .searchComponent > form > input {
     width: 20%;
     font-size: 100%;
     text-align: center;
     margin: 0.5%;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.182);
+    border-width: 0.5px;
   }
   .repoInfo {
     width: 31%;
@@ -83,18 +86,26 @@
     text-decoration: none;
   }
   .badgeAvatar {
-    max-height: 20%;
-    max-width: 20%;
+    max-height: 25%;
+    max-width: 25%;
     border-radius: 50%;
   }
 }
 
 @media screen and (max-width: 1200px) and (min-width: 1000px) {
+  .userBadge {
+    height: 20%; 
+    padding: 1% 1% 0% 1%;
+    font-size: 90%;
+  }
   .searchComponent > form > input {
     width: 20%;
     font-size: 100%;
     text-align: center;
     margin: 0.5%;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.182);
+    border-width: 0.5px;
   }
   .repoInfo {
     width: 47%;
@@ -160,11 +171,19 @@
 }
 
 @media screen and (max-width: 1000px) {
+  .userBadge {
+    height: 20%; 
+    padding: 1% 1% 0% 1%;
+    font-size: 80%;
+  }
   .searchComponent > form > input {
-    width: 20%;
-    font-size: 100%;
+    width: 30%;
+    font-size: 80%;
     text-align: center;
     margin: 0.5%;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.182);
+    border-width: 0.5px;
   }
   .repoInfo {
     width: 70%;
@@ -176,6 +195,7 @@
     border-color: black;
     border-width: 0.5px;
     word-wrap: break-word;
+    font-size: 80%;
   }
   .icons {
     padding: 1%;

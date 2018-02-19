@@ -42,7 +42,7 @@ class App extends Component {
           <h1>InRhythm Github Coding Challenge</h1>
           <p>Let&apos;s get started! Search for a Github user below.</p>
         </div>
-        {!this.state.loading ? <UserBadge userObj={this.state.userObj} /> : null}
+        <UserBadge userObj={this.state.userObj} />
         <Search
           searchTerm={this.state.searchTerm}
           adjustSearchTerm={this.adjustSearchTerm}

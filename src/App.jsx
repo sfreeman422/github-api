@@ -13,7 +13,7 @@ class App extends Component {
     this.state = {
       searchTerm: '',
       userObj: {
-        avatar_url: '/github-api/images/Octocat.jpg',
+        avatar_url: '/images/Octocat.jpg',
       },
       userRepos: [],
       error: false,

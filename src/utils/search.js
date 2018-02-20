@@ -11,7 +11,7 @@ async function search(searchTerm) {
         error: true, errorMessage: e.message,
       })));
   if (userObj.message) {
-    userObj.avatar_url = '/github-api/images/Octocat.jpg';
+    userObj.avatar_url = '/images/Octocat.jpg';
   }
   const userRepos = await (await
     fetch(`https://api.github.com/users/${searchTerm}/repos`)

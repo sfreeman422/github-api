@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import UserBadge from './UserBadge';
+import UserBadge from '../Components/UserBadge';
 
 it('generates an error message and octocat picture for a missing user', () => {
   const tree = renderer

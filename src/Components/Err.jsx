@@ -5,7 +5,7 @@ import Search from './Search';
 
 const Err = ({ errorMessage, searchTerm, adjustSearchTerm, search }) => (
   <div className="error">
-    <img src="/github-api/images/Octocat.jpg" alt="Octocat" className="badgeAvatar" />
+    <img src="/images/Octocat.jpg" alt="Octocat" className="badgeAvatar" />
     <p>{errorMessage}</p>
     <Search adjustSearchTerm={adjustSearchTerm} search={search} searchTerm={searchTerm} />
   </div>

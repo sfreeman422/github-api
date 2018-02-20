@@ -29,7 +29,7 @@ UserBadge.propTypes = {
 
 UserBadge.defaultProps = {
   userObj: {
-    avatar_url: '/github-api/images/Octocat.jpg',
+    avatar_url: '/images/Octocat.jpg',
     followers: 0,
     following: 0,
     name: '',

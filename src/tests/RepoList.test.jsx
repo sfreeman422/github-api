@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import RepoList from './RepoList';
+import RepoList from '../Components/RepoList';
 
 it('generates a repo list for a found user', () => {
   const tree = renderer

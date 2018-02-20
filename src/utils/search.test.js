@@ -11,16 +11,16 @@ test('search returns valid results when passed user string', () => {
 });
 
 test('search returns error when passed invalid search criteria', () => {
-  expect(search({})).resolves.toEqual({
+  expect(search({})).rejects.toEqual(Error({
     error: expect.any(Boolean),
     errorMessage: expect.any(String),
-  });
-  expect(search([])).resolves.toEqual({
+  }));
+  expect(search([])).rejects.toEqual(Error({
     error: expect.any(Boolean),
     errorMessage: expect.any(String),
-  });
-  expect(search(1)).resolves.toEqual({
+  }));
+  expect(search(1)).rejects.toEqual(Error({
     error: expect.any(Boolean),
     errorMessage: expect.any(String),
-  });
+  }));
 });

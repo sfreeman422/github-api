@@ -6,8 +6,8 @@ const UserBadge = ({ userObj }) => (
     {userObj.avatar_url ?
       <img src={userObj.avatar_url} className="badgeAvatar" alt="GitHub User Profile" />
       : null}
-    {userObj.errorMessage ?
-      <p className="error">Woops! It looks like that user is not on GitHub. <br /> Please try again.</p>
+    {userObj.message ?
+      <p className="error">{userObj.message} <br /> Please try again.</p>
       : null}
     {userObj.name ?
       <h1>{userObj.name}</h1>

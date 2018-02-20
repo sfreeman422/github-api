@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Search = ({ adjustSearchTerm, search, searchTerm }) => (
+const Search = ({ adjustSearchTerm, getUserInfo, searchTerm }) => (
   <div className="searchComponent">
-    <form onSubmit={search}>
+    <form onSubmit={getUserInfo}>
       <input
         type="text"
         placeholder="Search for a user..."
@@ -17,7 +17,7 @@ const Search = ({ adjustSearchTerm, search, searchTerm }) => (
 
 Search.propTypes = {
   adjustSearchTerm: PropTypes.func.isRequired,
-  search: PropTypes.func.isRequired,
+  getUserInfo: PropTypes.func.isRequired,
   searchTerm: PropTypes.string.isRequired,
 };
 

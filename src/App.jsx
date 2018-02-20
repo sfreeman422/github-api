@@ -20,21 +20,20 @@ class App extends Component {
       errorMessage: '',
     };
     this.adjustSearchTerm = this.adjustSearchTerm.bind(this);
-    this.search = this.search.bind(this);
+    this.getUserInfo = this.getUserInfo.bind(this);
+  }
+  getUserInfo(e) {
+    e.preventDefault();
+    search(this.state.searchTerm)
+      .then(searchResults => this.setState({ userObj: searchResults.userObj, userRepos: searchResults.userRepos }))
+      .catch(err => this.setState({ error: true, errorMessage: err.message }));
   }
   adjustSearchTerm(searchTerm) {
     this.setState({
       searchTerm,
     });
   }
-  search(e) {
-    e.preventDefault();
-    search(this.state.searchTerm)
-      .then(searchResults => this.setState({ userObj: searchResults.userObj, userRepos: searchResults.userRepos }))
-      .catch(err => this.setState({ error: true, errorMessage: err.message }));
-  }
   render() {
-    console.log(this.state);
     return (
       <div className="App">
         <div className="App-header">
@@ -46,7 +45,7 @@ class App extends Component {
             errorMessage={this.state.errorMessage}
             searchTerm={this.state.searchTerm}
             adjustSearchTerm={this.adjustSearchTerm}
-            search={this.search}
+            getUserInfo={this.getUserInfo}
           />
          :
           <div className="results">
@@ -54,7 +53,7 @@ class App extends Component {
             <Search
               searchTerm={this.state.searchTerm}
               adjustSearchTerm={this.adjustSearchTerm}
-              search={this.search}
+              getUserInfo={this.getUserInfo}
             />
             {this.state.userRepos.length > 0 ? <RepoList userRepos={this.state.userRepos} /> : null}
           </div>
